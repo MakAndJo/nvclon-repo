@@ -24,7 +24,7 @@ long double FindGeoAvgOfElements(std::pair<long double, int>* prefix, int l,
 int main() {
   std::cout.precision(16);
   int n;
-  std::pair<long double, int> *prefix = new std::pair<long double, int>[300001];
+  std::pair<long double, int>* prefix = new std::pair<long double, int>[300001];
   std::cin >> n;
   prefix[0] = {1, 0};
   for (int i = 0; i < n; i++) {
