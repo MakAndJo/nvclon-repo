@@ -8,10 +8,12 @@ std::pair<long double, int> Simplify(long double x) {
   if (x <= 0.1) {
     return {Simplify(x * 10).first, Simplify(x * 10).second - 1};
   }
-    return {x, 0};
+  return {x, 0};
 }
-long double FindGeoAvgOfElements(std::pair<long double, int>* prefix, int l, int r) {
-  std::pair<long double, int> temp_pair = Simplify(prefix[r].first / prefix[l - 1].first);
+long double FindGeoAvgOfElements(std::pair<long double, int>* prefix, int l,
+                                 int r) {
+  std::pair<long double, int> temp_pair =
+      Simplify(prefix[r].first / prefix[l - 1].first);
   std::pair<long double, int> multiplication = {
       temp_pair.first,
       temp_pair.second + prefix[r].second - prefix[l - 1].second};
