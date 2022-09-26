@@ -12,9 +12,12 @@ std::pair<long double, int> Simplify(long double x) {
 }
 long double FindGeoAvgOfElements(std::pair<long double, int>* prefix, int l, int r) {
   std::pair<long double, int> temp_pair = Simplify(prefix[r].first / prefix[l - 1].first);
-  std::pair<long double, int> multiplication = { temp_pair.first, temp_pair.second + prefix[r].second - prefix[l - 1].second };
+  std::pair<long double, int> multiplication = { temp_pair.first,
+                                                 temp_pair.second + prefix[r].second - prefix[l - 1].second
+                                               };
   long double power = static_cast<long double>(1) / (r - l + 1);
-  return std::pow(multiplication.first, power) * std::pow(10, multiplication.second * power);
+  return std::pow(multiplication.first, power) *
+         std::pow(10, multiplication.second * power);
 }
 int main() {
   std::cout.precision(16);
